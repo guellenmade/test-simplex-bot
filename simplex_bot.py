@@ -25,6 +25,10 @@ class SimplexBot():
         match command[0].lower():
             case "help": 
                 self.__help_bot_commands(command)
+            
+            case "hi":
+                message = "Hi there, pookie :3"
+                self.__send_text_message(message)
 
             #case "timer":
             #    example_timed_function(ws, message_sender, message_command_params)
@@ -71,30 +75,34 @@ class SimplexBot():
         command_overview = "help: Shows this screen or gives more information on given command\n" \
                         "\n" \
                         "timer: sets and controls a timer\n" \
-                        "...\n"
+                        "\n" \
+                        "hi: says hi back :3\n" \
+                        
         try:
             match message_command_params[1].lower():
                 case "help":
                     help_message = "Shows help screen or gives more information on given command\n" \
                                 "\n" \
                                 "Usage: \n" \
-                                "  help [command]\n" \
+                                "  /help [command]\n" \
                                 "\n" \
                                 "Example: \n"\
-                                "  help help\n"
+                                "  /help help\n"
                     self.__send_text_message(help_message)
                 case "timer":
                     help_message = "Sets and controls timers.\n" \
                                 "\n" \
                                 "Usage: \n" \
-                                "  timer new [hh:mm:ss] \"[Message]\"\n" \
-                                "  timer list\n" \
-                                "  timer stop [id]\n" \
+                                "  /timer new [hh:mm:ss] \"[Message]\"\n" \
+                                "  /timer list\n" \
+                                "  /timer stop [id]\n" \
                                 "\n" \
                                 "Example: \n" \
-                                "  timer new 1:02:01 \"Notification message\"\n" \
-                                "  timer new 12 \"Notification message\"\n"
+                                "  /timer new 1:02:01 \"Notification message\"\n" \
+                                "  /timer new 12 \"Notification message\"\n"
                     self.__send_text_message(help_message)
+                case "hi":
+                    help_message = "hi"
                 case _:
                     self.__send_text_message(command_overview)
         except IndexError:
