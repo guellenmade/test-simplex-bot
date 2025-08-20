@@ -1,3 +1,10 @@
+# why this fork?
+I am bored :)
+
+
+
+# Original readme:
+
 # simplex-bot-playground
 A playground that can be used as a basis for developing [simplex](https://simplex.chat/) bots.
 
